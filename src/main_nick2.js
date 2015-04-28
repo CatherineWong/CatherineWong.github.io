@@ -1,5 +1,6 @@
 /*global famous*/
 // import dependencies
+
 var Engine = famous.core.Engine;
 var Modifier = famous.core.Modifier;
 var Transform = famous.core.Transform;
@@ -89,7 +90,7 @@ mainContext.add(sidebar);
 
 //make headerBar
 var headerBar = new Surface ({
-	size: [screen.width - sidebarWidth, headerBarHeight],
+	size: [$(window).width() - sidebarWidth, headerBarHeight],
 	content: tutorialNames[0],
 	properties: {
 		backgroundColor: 'black',
@@ -130,7 +131,8 @@ var backArrow = new ImageSurface({
     content: 'src/back_arrow.svg',
     properties: {
 		marginLeft: (sidebarWidth + 50) + 'px',
-		marginTop: (headerBar.size[1]+progressBar.size[1]) + 'px'
+		marginTop: (headerBar.size[1]+progressBar.size[1]) + 'px',
+		cursor: 'pointer'
 	}
 });
 
@@ -146,7 +148,8 @@ var nextArrow = new ImageSurface({
     content: 'src/next_arrow.svg',
     properties: {
 		//marginLeft: (sidebarWidth + headerBar.size[0] - 50) + 'px',
-		marginTop: (headerBar.size[1]+progressBar.size[1]) + 'px'
+		marginTop: (headerBar.size[1]+progressBar.size[1]) + 'px',
+		cursor: 'pointer'
 	}
 });
 
@@ -158,7 +161,7 @@ mainContext.add(placeNextArrow).add(nextArrow);
 
 // make caption
 var caption = new Surface ({
-	size: [screen.width - sidebarWidth, 80],
+	size: [$(window).width() - sidebarWidth, 80],
 	content: captionText[tutorialIndex][captionTextIndex],
 	properties: {
 		fontFamily: fontType,
